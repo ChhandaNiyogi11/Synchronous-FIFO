@@ -12,17 +12,14 @@ always #2 clk=~clk;
 
 initial
 begin 
-    clk=0; rst=0; wr_en=0; rd_en=0;
-    
+    clk=0; rst=0; wr_en=0; rd_en=0;   
     #3 rst=1;
     drive();
     #4 repeat(4) @(posedge clk) pop();
     drive();
     #7 repeat(4) @(posedge clk) push();
-    drive();
-    
-    $finish;
-  
+    drive();  
+    $finish;  
 end 
 
 task push();
@@ -39,14 +36,12 @@ task pop();
     if(!empty)
     begin
         rd_en=1;
- 
         $display("Pop out: wr_en=%b, rd_en=%b, data=%h",wr_en,rd_en,d_out);    
     end
     else $display("FIFO is Empty; Cannot pop"); 
 endtask 
 
 task drive();
-
 begin    
     wr_en=0; #5 rd_en=0;
     fork
