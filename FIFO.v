@@ -6,8 +6,6 @@ module fifo #(parameter depth=8)(
 parameter pointer_width=$clog2(depth);
 reg[pointer_width:0] wr_ptr,rd_ptr;
 reg[7:0] mem[depth-1:0];
-//integer i;
-
 
 //Reset Logic
 always@(posedge clk)
@@ -15,7 +13,6 @@ begin
     if(!rst)
     begin 
         wr_ptr<=0; rd_ptr<=0; d_out<=0;
-//        for(i=0;i<depth;i=i+1) mem[i]<=0;
     end
 end
 
