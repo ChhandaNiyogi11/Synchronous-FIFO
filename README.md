@@ -95,7 +95,6 @@ endmodule
 
 - Data buffering.
 - Rate matching between producer and consumer processes.
-- Communication between asynchronous systems.
 
 ## Contributions
 
